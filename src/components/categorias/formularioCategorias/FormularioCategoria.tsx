@@ -54,45 +54,46 @@ function FormularioCategoria() {
   }
 
   return (
-    <div className="container mx-auto flex flex-col items-center justify-center">
-      <h1 className="text-4xl text-center my-10">
-        {id ? 'Editar categoria' : 'Cadastrar nova categoria'}
-      </h1>
-
-      <form onSubmit={gerarNovaCategoria} className="w-1/2 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <div className="mb-4">
-          <label htmlFor="nome" className="block text-gray-700 text-sm font-bold mb-2">
-            Nome da categoria
-          </label>
-          <input
-            type="text"
-            placeholder="Nome"
-            name='nome'
-            value={categoria.nome || ''}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-            className="border-2 border-gray-300 rounded p-2 w-full"
-          />
-        </div>
-        <div className="mb-6">
-          <label htmlFor="descricao" className="block text-gray-700 text-sm font-bold mb-2">
-            Descrição da categoria
-          </label>
-          <textarea
-            placeholder="Descrição"
-            name='descricao'
-            value={categoria.descricao || ''}
-            onChange={(e: ChangeEvent<HTMLTextAreaElement>) => atualizarEstado(e)}
-            className="border-2 border-gray-300 rounded p-2 w-full resize-none"
-            rows={4}
-          />
-        </div>
-        <button
-          className="rounded text-white bg-blue-500 hover:bg-blue-700 w-full py-2 px-4 mb-4"
-          type="submit"
-        >
-          {id ? 'Editar' : 'Cadastrar'}
-        </button>
-      </form>
+    <div className="flex items-center justify-center w-full h-screen bg-gray-100">
+      <div className="w-full max-w-md bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <h1 className="text-3xl text-center my-1">
+          {id ? 'Editar categoria' : 'Cadastrar nova categoria'}
+        </h1>
+        <form onSubmit={gerarNovaCategoria} className="mt-4">
+          <div className="mb-4">
+            <label htmlFor="nome" className="block text-gray-700 text-sm font-bold mb-2">
+              Nome da categoria
+            </label>
+            <input
+              type="text"
+              placeholder="Nome"
+              name='nome'
+              value={categoria.nome || ''}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+              className="border-2 border-gray-300 rounded p-2 w-full"
+            />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="descricao" className="block text-gray-700 text-sm font-bold mb-2">
+              Descrição da categoria
+            </label>
+            <textarea
+              placeholder="Descrição"
+              name='descricao'
+              value={categoria.descricao || ''}
+              onChange={(e: ChangeEvent<HTMLTextAreaElement>) => atualizarEstado(e)}
+              className="border-2 border-gray-300 rounded p-2 w-full resize-none"
+              rows={4}
+            />
+          </div>
+          <button
+            className="rounded text-white bg-blue-500 hover:bg-blue-700 w-full py-2 px-4"
+            type="submit"
+          >
+            {id ? 'Editar' : 'Cadastrar'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
